@@ -85,3 +85,16 @@ exports.login = (req, res) => {
         })
 
 }
+
+exports.uploadImage = (req, res) => {
+    const busboy = require('busboy');
+    const path = require('path');
+    const os = require('os');
+    const fs = require('fs');
+
+    const busboy = new busboy({ headers: res.headers });
+
+    busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+        const imageExtension = filename.split('.')[filename.split('.').length - 1]
+    })
+}
