@@ -13,31 +13,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-    form:{
-        textAlign: 'center',
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    textField: {
-        margin: '10px auto 10px auto'
-    },
-    button:{
-        marginTop: '20px',
-        position: "relative"
-    },
-    customError:{
-        color: 'red',
-        fontSize: '0.8rem'
-    },
-    progress:{
-        position: 'absolute',
-    }
-}
+const styles = theme => ({
+    ...theme.spreadThis
+})
 
 
 class login extends React.Component{
@@ -61,8 +39,9 @@ class login extends React.Component{
             password: this.state.password
         }
         axios.post('/login', userData)
-            .then(data => {
-                console.log(data);
+            .then(res => {
+                console.log(res.data);
+                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
                 this.setState({
                     loading: false
                 })

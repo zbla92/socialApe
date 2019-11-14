@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import createTheme from '@material-ui/core/styles/createMuiTheme';
 
 // Components
 import Navbar from './components/Navbar';
@@ -26,6 +25,31 @@ const theme = createMuiTheme({
         main: '#ff9e80',
         dark: '#b26e59',
         contrastText: '#fff'
+      }
+    },
+    spreadThis: {
+      form:{
+        textAlign: 'center',
+      },
+      image: {
+          margin: '20px auto 20px auto'
+      },
+      pageTitle: {
+          margin: '10px auto 10px auto'
+      },
+      textField: {
+          margin: '10px auto 10px auto'
+      },
+      button:{
+          marginTop: '20px',
+          position: "relative"
+      },
+      customError:{
+          color: 'red',
+          fontSize: '0.8rem'
+      },
+      progress:{
+          position: 'absolute',
       }
     }
 })
