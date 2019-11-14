@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createTheme from '@material-ui/core/styles/createMuiTheme';
 
 // Components
@@ -19,13 +19,13 @@ const theme = createMuiTheme({
         light: '#9bc0ff',
         main: '#82b1ff',
         dark: '#5b7bb2',
-        contrastText: '#000'
+        contrastText: '#fff'
       },
       secondary: {
         light: "#ffb199",
         main: '#ff9e80',
         dark: '#b26e59',
-        contrastText: '#000'
+        contrastText: '#fff'
       }
     }
 })
