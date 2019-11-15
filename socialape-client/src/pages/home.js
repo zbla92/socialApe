@@ -3,6 +3,7 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid'
 
 import Scream from '../components/Scream.js'
+import Profile from '../components/Profile.js'
 
 class home extends React.Component{
    state = {
@@ -27,13 +28,13 @@ class home extends React.Component{
 
         return (
             <Grid container spacing={2}>
-            <Grid item sm={8} xs={12}>
-                {recentScreamsMarkup}
+                <Grid item sm={8} xs={12}>
+                    {recentScreamsMarkup}
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                    <Profile />
+                </Grid>
             </Grid>
-            <Grid item sm={4} xs={12}>
-                <p>Profile...</p>
-            </Grid>
-        </Grid>
         )
     }
 } 
