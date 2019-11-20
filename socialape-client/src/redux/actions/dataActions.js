@@ -1,4 +1,4 @@
-import { LOADING_DATA, SET_SCREAMS, LIKE_SCREAM, UNLIKE_SCREAM } from '../types';
+import { LOADING_DATA, SET_SCREAMS, LIKE_SCREAM, UNLIKE_SCREAM, DELETE_SCREAM } from '../types';
 import axios from 'axios';
 
 export const getScreams = () => dispatch => {
@@ -20,7 +20,6 @@ export const getScreams = () => dispatch => {
 
 // Like a scream
 export const likeScream = (screamId) => dispatch => {
-    console.log(screamId)
     axios.get(`/scream/${screamId}/like`)
         .then( res => {
             dispatch({
@@ -45,4 +44,15 @@ export const unlikeScream = screamId => dispatch =>{
         .catch(err => {
             console.log(err)
         })
+}
+
+export const deleteScream = screamId => dispatch => {
+    axios.delete(`/scream/${screamId}`)
+        .then(() => {
+            dispatch({ 
+                type: DELETE_SCREAM,
+                payload: screamId
+            })
+        })
+        .catch( err => console.log(err))
 }

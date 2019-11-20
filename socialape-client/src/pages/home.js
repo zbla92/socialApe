@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid'
-import PropTypes, { func } from 'prop-types'
+import PropTypes from 'prop-types'
 
 // Redux
 import { connect } from 'react-redux'
@@ -19,8 +19,9 @@ class home extends React.Component{
    }
 
     render(){
-        let recentScreamsMarkup = this.props.screams ? (
-            this.props.screams.map(scream => <Scream key={scream.screamId} scream={scream} />)
+        const { screams } = this.props.data
+        let recentScreamsMarkup = screams ? (
+            screams.map(scream => <Scream key={scream.screamId} scream={scream} />)
         ) : <p>loading ...</p>
 
         return (
@@ -37,7 +38,7 @@ class home extends React.Component{
 } 
 
 home.propTypes = {
-    screams: PropTypes.array.isRequired,
+    data: PropTypes.object.isRequired,
     getScreams: PropTypes.func.isRequired
 }
 
@@ -45,8 +46,8 @@ const mapActionsToProps = {
     getScreams
 }
 
-const mapStateToProprs = state => {
-    return {screams: state.data.screams}
-}
+const mapStateToProps = (state) => ({
+    data: state.data
+  });
 
-export default connect(mapStateToProprs, mapActionsToProps)(home);
+export default connect(mapStateToProps, mapActionsToProps)(home);
