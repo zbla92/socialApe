@@ -17,10 +17,11 @@ class home extends React.Component{
     componentDidMount(){
         this.props.getScreams();
    }
+   
 
     render(){
-        const { screams } = this.props.data
-        let recentScreamsMarkup = screams ? (
+        const { screams, loading } = this.props.data
+        let recentScreamsMarkup = !loading ? (
             screams.map(scream => <Scream key={scream.screamId} scream={scream} />)
         ) : <p>loading ...</p>
 
@@ -46,8 +47,9 @@ const mapActionsToProps = {
     getScreams
 }
 
-const mapStateToProps = (state) => ({
-    data: state.data
-  });
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {data: state.data}
+  };
 
 export default connect(mapStateToProps, mapActionsToProps)(home);

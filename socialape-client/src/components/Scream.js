@@ -23,7 +23,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
-const style = {
+const styles = {
     card: {
         position: 'relative',
         display:'flex',
@@ -135,4 +135,4 @@ const mapActionsToProps = {
 const mapStateToProps = state => ({
     user: state.user
 })
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(style)(Scream));
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Scream));
