@@ -5,7 +5,7 @@ import MyButton from '../util/MyButton';
 
 // Redux
 import { connect } from 'react-redux';
-import { postScream } from '../redux/actions/dataActions';
+import { postScream, clearErrors } from '../redux/actions/dataActions';
 
 // MUI
 import {globalTheme} from '../util/theme'
@@ -24,7 +24,8 @@ const styles = theme => ({
     ...globalTheme,
     submitButton: {
         position: 'relative',
-        marginTop: '5px'
+        marginTop: 10,
+        float: 'right',
     },
     progressSpinner: {
         position: 'absolute'
@@ -60,8 +61,8 @@ class PostScream extends React.Component{
     handleOpenClose = () => {
         this.setState({
             open: !this.state.open,
-            errors: {}
         })
+        this.props.clearErrors()
     }
     handleChange = e => {
         this.setState({
@@ -71,6 +72,7 @@ class PostScream extends React.Component{
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.postScream(this.state.body );
+        this.handleOpenClose()
       };
     
 
@@ -136,11 +138,12 @@ class PostScream extends React.Component{
 
 PostScream.propTypes = {
     postScream: PropTypes.func.isRequired,
-    UI: PropTypes.object.isRequired
+    UI: PropTypes.object.isRequired,
+    clearErrors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     UI: state.UI
 })
 
-export default connect(mapStateToProps, { postScream })(withStyles(styles)(PostScream));
+export default connect(mapStateToProps, { postScream, clearErrors })(withStyles(styles)(PostScream));

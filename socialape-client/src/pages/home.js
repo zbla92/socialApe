@@ -48,7 +48,6 @@ const mapActionsToProps = {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {data: state.data}
   };
 
