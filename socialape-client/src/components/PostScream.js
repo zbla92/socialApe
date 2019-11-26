@@ -14,7 +14,6 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import EditIcon from '@material-ui/icons/Edit'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
@@ -45,6 +44,7 @@ class PostScream extends React.Component{
         errors: {}
     }
     componentWillReceiveProps(nextProps){
+      console.log('its about to go down')
         if(nextProps.UI.errors){
             this.setState({
                 errors: nextProps.UI.errors
@@ -54,7 +54,7 @@ class PostScream extends React.Component{
           this.setState({
             body: ''
           })
-          this.handleOpenClose()
+          this.setState({open: false})
         }
     }
 
