@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import { getScreams } from '../redux/actions/dataActions'
 
 
-import Scream from '../components/Scream.js'
-import Profile from '../components/Profile.js'
+import Scream from '../components/scream/Scream'
+import Profile from '../components/profile/Profile'
 
 class home extends React.Component{
    state = {
