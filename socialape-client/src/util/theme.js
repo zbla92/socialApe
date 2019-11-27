@@ -36,6 +36,16 @@ export const globalTheme = {
       },
       progress:{
           position: 'absolute',
-      }
-    }
+      },
+      invisibleSeperator: {
+        border: 'none',
+        margin: 5,
+      },
+      visibleSeperator: {
+        width: '100%',
+        borderBottom: '1px solid rgba(0,0,0,0.1)',
+        marginBottom: '20px'
+      },
+    },
+    
 }
