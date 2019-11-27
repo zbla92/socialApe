@@ -44,7 +44,6 @@ class PostScream extends React.Component{
         errors: {}
     }
     componentWillReceiveProps(nextProps){
-      console.log('its about to go down')
         if(nextProps.UI.errors){
             this.setState({
                 errors: nextProps.UI.errors
