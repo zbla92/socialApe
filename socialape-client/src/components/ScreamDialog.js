@@ -5,6 +5,7 @@ import MyButton from '../util/MyButton';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import { globalTheme } from '../util/theme';
+import LikeButton from './LikeButton';
 
 // Redux
 import { connect } from 'react-redux';
@@ -21,6 +22,7 @@ import Typography from '@material-ui/core/Typography';
 // Icons
 import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMore from '@material-ui/icons/UnfoldMore';
+import ChatIcon from '@material-ui/icons/Chat';
 
 const styles = theme => ({
     ...globalTheme,
@@ -91,7 +93,7 @@ class ScreamDialog extends React.Component{
                      <CircularProgress size={200} thickness={2} />
                  </div>
              ) : (
-                 <Grid container spacing={16}>
+                 <Grid container >
                      <Grid item sm={5}>
                          <img src={userImage} alt="Profile" className={classes.profileImage}/>
                     </Grid>
@@ -112,6 +114,12 @@ class ScreamDialog extends React.Component{
                         <Typography variant="body1">
                             {body}
                         </Typography>
+                        <LikeButton screamId={screamId} />
+                        <span>{likeCount} likes</span>
+                        <MyButton tip="comments">
+                            <ChatIcon color='primary' />
+                        </MyButton>
+                        <span>{commentCount} comments</span>
                      </Grid>
                  </Grid>
              );
