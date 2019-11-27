@@ -26,7 +26,7 @@ const styles = theme => ({
     ...globalTheme,
     invisibleSeperator: {
         border: 'none',
-        margin: 10
+        margin: 5
     },
     profileImage: {
         maxWidth: 200,
@@ -40,7 +40,17 @@ const styles = theme => ({
     closeButton: {
         position: 'absolute',
         left: '90%'
+    },
+    expandButton: {
+        position: 'absolute',
+        left: '93%'
+    },
+    spinnerDiv:{
+        textAlign: 'center',
+        marginTop: 20,
+        marginBottom: 20
     }
+
 })
 
 
@@ -77,7 +87,9 @@ class ScreamDialog extends React.Component{
              } = this.props;
 
              const dialogMarkup = loading? (
-                 <CircularProgress size={200} />
+                 <div className={classes.spinnerDiv} >
+                     <CircularProgress size={200} thickness={2} />
+                 </div>
              ) : (
                  <Grid container spacing={16}>
                      <Grid item sm={5}>
@@ -87,7 +99,7 @@ class ScreamDialog extends React.Component{
                         <Typography
                             component={Link}
                             color="primary"
-                            varaint="h5"
+                            variant="h5"
                             to={`/users/${userHandle}`}
                         >
                             @{userHandle}
