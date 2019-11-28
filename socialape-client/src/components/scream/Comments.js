@@ -50,7 +50,7 @@ class Comments extends React.Component{
                                             <Typography variant="body2" color='textSecondary'>
                                                 {dayjs(createdAt).format('h:mm a,MMMM DD YYYY')}
                                             </Typography>
-                                            <hr className={classes.invisibleSeperator}/>
+                                            <hr className={classes.invisibleSeparator}/>
                                             <Typography variant='body1'>
                                                 {body}
                                             </Typography>
@@ -58,7 +58,7 @@ class Comments extends React.Component{
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            {index < comments.length-1 ? <hr className={classes.visibleSeperator} />: null}
+                            {index < comments.length-1 ? <hr className={classes.visibleSeparator} />: null}
                         </Fragment>
                     )
                 })}

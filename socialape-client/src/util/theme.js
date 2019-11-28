@@ -37,13 +37,13 @@ export const globalTheme = {
       progress:{
           position: 'absolute',
       },
-      invisibleSeperator: {
+      invisibleSeparator: {
         border: 'none',
         margin: 5,
       },
-      visibleSeperator: {
+      visibleSeparator: {
         width: '100%',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
+        borderBottom: '0.5px solid rgba(0,0,0,0.05)',
         marginBottom: '20px'
       },
     },
