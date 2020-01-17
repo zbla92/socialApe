@@ -158,8 +158,8 @@ exports.getAuthenticatedUser = (req, res) => {
       userData.notifications = []
       data.forEach(doc => {
         userData.notifications.push({
-          recipient: doc.data.recipient,
-          sender: doc.data.sender,
+          recipient: doc.data().recipient,
+          sender: doc.data().sender,
           createdAt: doc.data().createdAt,
           screamId: doc.data().screamId,
           type: doc.data().type,
